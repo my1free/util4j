@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.michealyang</groupId>
@@ -9,10 +10,10 @@
     <packaging>pom</packaging>
 
     <modules>
-    <module>util4j-parallel</module>
-    <module>util4j-excel</module>
-    <module>util4j-base</module>
-  </modules>
+        <module>util4j-parallel</module>
+        <module>util4j-excel</module>
+        <module>util4j-base</module>
+    </modules>
 
     <properties>
         <java8-version>1.8</java8-version>
@@ -29,6 +30,9 @@
         <fastjson.version>1.2.29</fastjson.version>
         <guava.version>19.0</guava.version>
         <httpclient.version>4.2.3</httpclient.version>
+        <apache.poi.version>3.9</apache.poi.version>
+        <servlet.api.version>3.0</servlet.api.version>
+        <apache.commons.beanutils.version>1.8.3</apache.commons.beanutils.version>
 
         <!--test-->
         <junit.version>4.11</junit.version>
@@ -36,6 +40,7 @@
         <maven.assembly.plugin.version>2.6</maven.assembly.plugin.version>
         <maven.war.plugin.version>2.6</maven.war.plugin.version>
         <maven.shade.plugin.version>2.4</maven.shade.plugin.version>
+        <maven.surefire.plugin.version>2.20.1</maven.surefire.plugin.version>
 
     </properties>
 
@@ -107,10 +112,49 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet.api.version}</version>
+            </dependency>
+
+            <!--excel poi-->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${apache.poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${apache.poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${apache.commons.beanutils.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
         <pluginManagement>
             <plugins>
                 <plugin>
