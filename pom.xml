@@ -11,6 +11,7 @@
     <modules>
     <module>util4j-parallel</module>
     <module>util4j-excel</module>
+    <module>util4j-base</module>
   </modules>
 
     <properties>
