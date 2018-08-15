@@ -8,9 +8,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <groupId>com.my</groupId>
-    <artifactId>util4j-base</artifactId>
+    <artifactId>util4j-http</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>util4j-base</name>
+    <name>util4j-http</name>
     <url>http://maven.apache.org</url>
     <dependencies>
     </dependencies>

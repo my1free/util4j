@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.michealyang</groupId>
+    <groupId>com.my</groupId>
     <artifactId>util4j</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>util for java</name>
@@ -13,6 +13,7 @@
         <module>util4j-parallel</module>
         <module>util4j-excel</module>
         <module>util4j-base</module>
+        <module>util4j-http</module>
     </modules>
 
     <properties>
